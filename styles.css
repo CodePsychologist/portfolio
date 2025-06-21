@@ -286,6 +286,165 @@ header {
     flex: 1;
 }
 
+/* ===== BUSINESS CARD STYLES ===== */
+.business-card-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-md);
+}
+
+.business-card {
+    width: 35rem;
+    height: 45rem;
+    perspective: 1000px;
+}
+
+.business-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform var(--transition-medium);
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-lg);
+}
+
+.business-card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.business-card-front, .business-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.business-card-front {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    color: var(--dark-color);
+}
+
+.business-card-back {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3857d6 100%);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card-avatar {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--spacing-md);
+}
+
+.card-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-name {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    color: var(--gray-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.card-social {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.card-social a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #f0f2f5;
+    color: var(--dark-color);
+    font-size: 1.8rem;
+    transition: all var(--transition-fast);
+}
+
+.card-social a:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.card-contact-list {
+    text-align: left;
+    margin-bottom: var(--spacing-md);
+    width: 100%;
+}
+
+.card-contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.card-contact-list i {
+    font-size: 1.8rem;
+    width: 2.5rem;
+    text-align: center;
+}
+
+.card-summary {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+}
+
+.card-flip-btn {
+    background-color: transparent;
+    border: 2px solid currentColor;
+    color: inherit;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all var(--transition-fast);
+}
+
+.business-card-front .card-flip-btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.business-card-back .card-flip-btn:hover {
+    background-color: white;
+    border-color: white;
+    color: var(--primary-color);
+}
+
 /* ===== PROJECTS SECTION ===== */
 .projects-section {
     padding: var(--spacing-xl) 0;
@@ -531,6 +690,16 @@ header {
     
     .about-content {
         flex-direction: column;
+    }
+    
+    .business-card-container {
+        margin-top: var(--spacing-lg);
+    }
+    
+    .business-card {
+        width: 100%;
+        max-width: 35rem;
+        height: 45rem;
     }
     
     .nav-menu {
